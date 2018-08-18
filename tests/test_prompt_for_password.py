@@ -6,7 +6,7 @@
 
 import unittest
 
-from prompt_for_password import prompt_for_password
+# from prompt_for_password import prompt_for_password
 
 
 class TestPrompt_for_password(unittest.TestCase):

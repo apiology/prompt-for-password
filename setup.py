@@ -18,11 +18,11 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [ ]
+requirements: List[str] = []
 
-setup_requirements: List[str] = [ ]
+setup_requirements: List[str] = []
 
-test_requirements: List[str] = [ ]
+test_requirements: List[str] = []
 
 
 class MypyCleanCommand(Command):
@@ -103,7 +103,8 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
     ],
-    description="Script which securely prompts for a password and outputs it to stdout",
+    description=("Script which securely prompts for a password and "
+                 "outputs it to stdout"),
     install_requires=requirements,
     license="MIT license",
     long_description=readme + '\n\n' + history,
