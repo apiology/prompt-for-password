@@ -17,7 +17,8 @@ def zero(s: str) -> bool:
     ...
 
 
-def drop_privileges(username: Optional[str]=None, groupname: Optional[str]=None) -> bool:
+def drop_privileges(username: Optional[str]=None,
+                    groupname: Optional[str]=None) -> bool:
     ...
 
 
