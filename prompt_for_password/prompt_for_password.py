@@ -5,7 +5,7 @@ import argparse
 from pysectools.pinentry import Pinentry
 
 
-def main():
+def main() -> None:
     desc = 'Request password from user and echo back on stdout'
     parser = argparse.ArgumentParser(description=desc)
     parser.add_argument('description', type=str,
@@ -24,8 +24,9 @@ def main():
     pinentry = Pinentry(fallback_to_getpass=False)
 
     # all parameters are optional
-    password = pinentry.ask(prompt=args.prompt,
-                            description=args.description)
+    prompt: str = args.prompt
+    description: str = args.description
+    password: str = pinentry.ask(prompt=prompt, description=description)
     pinentry.close()
     print(password)
     pysectools.zero(password)
