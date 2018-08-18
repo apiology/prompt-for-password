@@ -18,7 +18,9 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements: List[str] = []
+requirements: List[str] = [
+    'pysectools'
+]
 
 setup_requirements: List[str] = []
 
@@ -105,6 +107,12 @@ setup(
     ],
     description=("Script which securely prompts for a password and "
                  "outputs it to stdout"),
+    entry_points={
+        'console_scripts': [
+            'prompt-for-password='
+            'prompt_for_password.prompt_for_password:main',
+        ],
+    },
     install_requires=requirements,
     license="MIT license",
     long_description=readme + '\n\n' + history,
