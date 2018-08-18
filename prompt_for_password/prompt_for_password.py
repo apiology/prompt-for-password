@@ -1,3 +1,35 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 
-"""Main module."""
+import pysectools
+import argparse
+from pysectools.pinentry import Pinentry
+
+
+def main():
+    desc = 'Request password from user and echo back on stdout'
+    parser = argparse.ArgumentParser(description=desc)
+    parser.add_argument('description', type=str,
+                        help='String to present to user when '
+                        'asking for secret')
+    parser.add_argument('--prompt', type=str,
+                        help='Type of input being asked for',
+                        default='Password:')
+
+    args = parser.parse_args()
+
+    # Prevent secrets from leaking out of your process's memory:
+    pysectools.disallow_swap()
+    pysectools.disallow_core_dumps()
+
+    pinentry = Pinentry(fallback_to_getpass=False)
+
+    # all parameters are optional
+    password = pinentry.ask(prompt=args.prompt,
+                            description=args.description)
+    pinentry.close()
+    print(password)
+    pysectools.zero(password)
+
+
+if __name__ == "__main__":
+    main()
