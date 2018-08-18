@@ -26,13 +26,14 @@ Script which securely prompts for a password and outputs it to stdout
 * Free software: MIT license
 * Documentation: https://prompt-for-password.readthedocs.io.
 
+Use the `pinentry` program to capture the password - letting you use
+use GUI versions to do asynchrous pop-ups for authentication within
+scripts.  See these projects for details:
 
-Features
---------
+* https://www.gnupg.org/related_software/pinentry/index.html
+* https://github.com/GPGTools/pinentry-mac
 
-* TODO
-
-Credits
+credits
 -------
 
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
