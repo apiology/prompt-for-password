@@ -4,7 +4,8 @@ set -o pipefail
 
 latest_version() {
   major_minor=${1}
-  pyenv install --list | grep "^  ${major_minor}." | grep -v -- -dev | tail -1
+  # https://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable
+  pyenv install --list | grep "^  ${major_minor}." | grep -v -- -dev | tail -1 | xargs
 }
 
 # You can find out which feature versions are still supported / have
@@ -38,7 +39,7 @@ done
 
 # assumes you have an existing pyenv named mylibs where your global
 # stuff goes
-latest_python_version="$(head -1 .python-version | cut -d' ' -f1)"
+latest_python_version="$(cut -d' ' -f1 <<< "${python_versions}")"
 virtualenv_name="prompt_for_password-${latest_python_version}"
 pyenv virtualenv "${latest_python_version}" "${virtualenv_name}" || true
 pyenv local "${virtualenv_name}" ${python_versions} mylibs
