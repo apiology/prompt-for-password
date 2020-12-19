@@ -7,7 +7,7 @@ Prompt for password
         :target: https://pypi.python.org/pypi/prompt_for_password
 
 .. image:: https://img.shields.io/travis/apiology/prompt_for_password.svg
-        :target: https://travis-ci.org/apiology/prompt_for_password
+        :target: https://travis-ci.com/apiology/prompt_for_password
 
 .. image:: https://readthedocs.org/projects/prompt-for-password/badge/?version=latest
         :target: https://prompt-for-password.readthedocs.io/en/latest/?badge=latest

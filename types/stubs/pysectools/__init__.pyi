@@ -17,10 +17,10 @@ def zero(s: str) -> bool:
     ...
 
 
-def drop_privileges(username: Optional[str]=None,
-                    groupname: Optional[str]=None) -> bool:
+def drop_privileges(username: Optional[str] = None,
+                    groupname: Optional[str] = None) -> bool:
     ...
 
 
-def goodrandom(size: int=64) -> Union[bool, bytes]:
+def goodrandom(size: int = 64) -> Union[bool, bytes]:
     ...
