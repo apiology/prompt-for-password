@@ -96,6 +96,7 @@ class QualityCommand(Command):
 setup(
     author="Vince Broz",
     author_email='vince@broz.cc',
+    python_requires='>=3.6',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
@@ -121,7 +122,7 @@ setup(
     include_package_data=True,
     keywords='prompt_for_password',
     name='prompt_for_password',
-    packages=find_packages(include=['prompt_for_password']),
+    packages=find_packages(include=['prompt_for_password', 'prompt_for_password.*']),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
