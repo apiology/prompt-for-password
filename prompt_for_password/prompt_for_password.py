@@ -2,6 +2,7 @@
 
 import pysectools
 import argparse
+import sys
 from pysectools.pinentry import Pinentry
 
 
@@ -29,6 +30,7 @@ def main() -> None:
     password: str = pinentry.ask(prompt=prompt, description=description)
     pinentry.close()
     print(password)
+    sys.stdout.flush()
     pysectools.zero(password)
 
 
