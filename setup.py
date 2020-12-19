@@ -96,6 +96,7 @@ class QualityCommand(Command):
 setup(
     author="Vince Broz",
     author_email='vince@broz.cc',
+    python_requires='>=3.6',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
@@ -104,6 +105,8 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
     ],
     description=("Script which securely prompts for a password and "
                  "outputs it to stdout"),
@@ -119,12 +122,13 @@ setup(
     include_package_data=True,
     keywords='prompt_for_password',
     name='prompt_for_password',
-    packages=find_packages(include=['prompt_for_password']),
+    packages=find_packages(include=['prompt_for_password',
+                                    'prompt_for_password.*']),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/apiology/prompt_for_password',
-    version='1.0.3',
+    version='1.0.4',
     zip_safe=False,
     cmdclass={
         'quality': QualityCommand,
