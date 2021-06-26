@@ -2,20 +2,120 @@
 
 """Tests for `prompt_for_password` package."""
 
-
-import unittest
-
 # from prompt_for_password import prompt_for_password
+import argparse
+import os
+import subprocess
+import sys
+from unittest.mock import call, patch
+
+import pytest
+
+from prompt_for_password.cli import main, parse_argv, process_args
 
 
-class TestPrompt_for_password(unittest.TestCase):
-    """Tests for `prompt_for_password` package."""
+@pytest.fixture
+def response():
+    """Sample pytest fixture.
 
-    def setUp(self):
-        """Set up test fixtures, if any."""
+    See more at: http://doc.pytest.org/en/latest/fixture.html
+    """
+    # import requests
+    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
 
-    def tearDown(self):
-        """Tear down test fixtures, if any."""
 
-    def test_000_something(self):
-        """Test something."""
+def test_content(response):
+    """Sample pytest test function with the pytest fixture as an argument."""
+    # from bs4 import BeautifulSoup
+    # assert 'GitHub' in BeautifulSoup(response.content).title.string
+
+
+@patch('builtins.print', autospec=print)
+def test_process_args(print):
+    ns = argparse.Namespace()
+    setattr(ns, 'foo', '<fake>')
+    out = process_args(ns)
+
+    assert out == 0
+    print.assert_has_calls([call("Arguments: Namespace(foo='<fake>')"),
+                            call('Replace this message by putting '
+                                 'your code into prompt_for_password.cli.process_args')])
+
+
+# @pytest.mark.skip(reason="working on main help test first")
+def test_parse_argv_run_simple():
+    argv = ['prompt_for_password', 'op1', '123']
+    args = parse_argv(argv)
+    assert vars(args) == {'operation': 'op1', 'arg1': 123}
+
+
+@patch('prompt_for_password.cli.parse_argv', autospec=parse_argv)
+@patch('prompt_for_password.cli.process_args', autospec=process_args)
+def test_main(process_args, parse_argv):
+    argv = object()
+    args = parse_argv.return_value
+    assert process_args.return_value == main(argv)
+    process_args.assert_called_with(args)
+
+
+def test_cli_op1_help():
+    request_long_lines = {'COLUMNS': '999', 'LINES': '25'}
+    env = {}
+    env.update(os.environ)
+    env.update(request_long_lines)
+    expected_help = """usage: prompt_for_password op1 [-h] arg1
+
+Do some kind of operation
+
+positional arguments:
+  arg1        arg1 help
+
+options:
+  -h, --help  show this help message and exit
+"""
+    if sys.version_info <= (3, 10):
+        # 3.10 changed the wording a bit
+        expected_help = expected_help.replace('options:', 'optional arguments:')
+
+    actual_help = subprocess.check_output(['prompt_for_password', 'op1', '--help'],
+                                          env=env).decode('utf-8')
+    assert actual_help == expected_help
+
+
+def test_cli_no_command():
+    request_long_lines = {'COLUMNS': '999', 'LINES': '25'}
+    env = {}
+    env.update(os.environ)
+    env.update(request_long_lines)
+    expected_help = """usage: prompt_for_password [-h] {op1} ...
+prompt_for_password: error: Please provide a command
+"""
+    result = subprocess.run(['prompt_for_password'],
+                            stdout=subprocess.PIPE,
+                            stderr=subprocess.PIPE,
+                            env=env)
+    actual_help = result.stderr.decode('utf-8')
+    assert actual_help == expected_help
+
+
+def test_cli_help():
+    request_long_lines = {'COLUMNS': '999', 'LINES': '25'}
+    env = {}
+    env.update(os.environ)
+    env.update(request_long_lines)
+    expected_help = """usage: prompt_for_password [-h] {op1} ...
+
+positional arguments:
+  {op1}
+    op1       Do some kind of operation
+
+options:
+  -h, --help  show this help message and exit
+"""
+    if sys.version_info <= (3, 10):
+        # 3.10 changed the wording a bit
+        expected_help = expected_help.replace('options:', 'optional arguments:')
+
+    actual_help = subprocess.check_output(['prompt_for_password', '--help'],
+                                          env=env).decode('utf-8')
+    assert actual_help == expected_help
