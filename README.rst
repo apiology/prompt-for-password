@@ -3,22 +3,15 @@ Prompt for password
 ===================
 
 
+.. image:: https://circleci.com/gh/apiology/prompt_for_password.svg?style=svg
+    :target: https://circleci.com/gh/apiology/prompt_for_password
+
 .. image:: https://img.shields.io/pypi/v/prompt_for_password.svg
         :target: https://pypi.python.org/pypi/prompt_for_password
-
-.. image:: https://img.shields.io/travis/apiology/prompt_for_password.svg
-        :target: https://travis-ci.com/apiology/prompt_for_password
 
 .. image:: https://readthedocs.org/projects/prompt-for-password/badge/?version=latest
         :target: https://prompt-for-password.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
-
-
-.. image:: https://pyup.io/repos/github/apiology/prompt_for_password/shield.svg
-     :target: https://pyup.io/repos/github/apiology/prompt_for_password/
-     :alt: Updates
-
-
 
 Script which securely prompts for a password and outputs it to stdout
 
