@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
-import pysectools
 import argparse
 import sys
+
+import pysectools
 from pysectools.pinentry import Pinentry
 
 
