@@ -3,11 +3,9 @@
 """Tests for `prompt_for_password` package."""
 
 # from prompt_for_password import prompt_for_password
-import argparse
 import os
 import subprocess
 import sys
-from unittest.mock import call, patch
 
 import pytest
 
