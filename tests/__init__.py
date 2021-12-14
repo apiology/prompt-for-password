@@ -1,1 +1,1 @@
-"""Unit test package for prompt_for_password."""
+"""Unit test package for prompt-for-password."""

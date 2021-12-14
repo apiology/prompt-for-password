@@ -4,7 +4,7 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = python -msphinx
-SPHINXPROJ    = prompt_for_password
+SPHINXPROJ    = prompt-for-password
 SOURCEDIR     = .
 BUILDDIR      = _build
 
