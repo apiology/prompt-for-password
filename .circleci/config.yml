@@ -81,7 +81,7 @@ commands:
 jobs:
   overcommit:
     docker:
-      - image: apiology/circleci:latest
+      - image: apiology/circleci-python:latest
     steps:
       - when:
           condition:
@@ -96,7 +96,7 @@ jobs:
   build:
     working_directory: ~/prompt_for_password
     docker:
-      - image: apiology/circleci:latest
+      - image: apiology/circleci-python:latest
     steps:
       - set_up_environment
       - unless:
