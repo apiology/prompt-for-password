@@ -115,7 +115,7 @@ setup(
     description="Script which securely prompts for a password and outputs it to stdout",  # noqa: E501
     entry_points={
         'console_scripts': [
-            'prompt_for_password=prompt_for_password.cli:main',
+            'prompt-for-password=prompt_for_password.cli:main',
         ],
     },
     cmdclass={
@@ -127,13 +127,13 @@ setup(
     long_description=readme + '\n\n' + history,
     long_description_content_type='text/x-rst',
     include_package_data=True,
-    keywords='prompt_for_password',
-    name='prompt_for_password',
+    keywords='prompt-for-password',
+    name='prompt-for-password',
     packages=find_packages(include=['prompt_for_password',
                                     'prompt_for_password.*']),
     test_suite='tests',
     tests_require=test_requirements,
-    url='https://github.com/apiology/prompt_for_password',
+    url='https://github.com/apiology/prompt-for-password',
     version='0.1.0',
     zip_safe=False,
 )

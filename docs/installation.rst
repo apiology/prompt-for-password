@@ -12,7 +12,7 @@ To install Prompt for password, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install prompt_for_password
+    $ pip install prompt-for-password
 
 This is the preferred method to install Prompt for password, as it will always install the most recent stable release.
 
@@ -32,13 +32,13 @@ You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/apiology/prompt_for_password
+    $ git clone git://github.com/apiology/prompt-for-password
 
 Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl -OJL https://github.com/apiology/prompt_for_password/tarball/main
+    $ curl -OJL https://github.com/apiology/prompt-for-password/tarball/main
 
 Once you have a copy of the source, you can install it with:
 
@@ -47,5 +47,5 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/apiology/prompt_for_password
-.. _tarball: https://github.com/apiology/prompt_for_password/tarball/main
+.. _Github repo: https://github.com/apiology/prompt-for-password
+.. _tarball: https://github.com/apiology/prompt-for-password/tarball/main

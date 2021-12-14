@@ -1,4 +1,4 @@
-"""Console script for prompt_for_password."""
+"""Console script for prompt-for-password."""
 import argparse
 import sys
 from typing import List
@@ -28,7 +28,7 @@ def process_args(args: argparse.Namespace) -> int:
 
 
 def main(argv: List[str] = sys.argv) -> int:
-    """Console script for prompt_for_password."""
+    """Console script for prompt-for-password."""
 
     args = parse_argv(argv)
 
