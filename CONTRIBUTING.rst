@@ -42,14 +42,15 @@ coding it.
 Write Documentation
 ~~~~~~~~~~~~~~~~~~~
 
-Prompt for password could always use more documentation, whether as part of the
-official Prompt for password docs, in docstrings, or even on the web in blog posts,
-articles, and such.
+Prompt for password could always use more documentation, whether as part of
+the official Prompt for password docs, in docstrings, or even on the web in blog posts, articles,
+and such.
 
 Submit Feedback
 ~~~~~~~~~~~~~~~
 
-The best way to send feedback is to file an issue at https://github.com/apiology/prompt-for-password/issues.
+The best way to send feedback is to file an issue at
+https://github.com/apiology/prompt-for-password/issues.
 
 If you are proposing a new feature:
 
