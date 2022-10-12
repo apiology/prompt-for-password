@@ -80,6 +80,7 @@ commands:
 
 jobs:
   overcommit:
+    working_directory: ~/prompt-for-password
     docker:
       - image: apiology/circleci-python:latest
     steps:
