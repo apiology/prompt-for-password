@@ -72,19 +72,6 @@ class CoverageRatchetCommand(Command):
             print(f"Code coverage steady at {new_coverage}%")
 
 
-class TestCoverageRatchetCommand(CoverageRatchetCommand):
-    def initialize_options(self) -> None:
-        """Set default values for options."""
-        self.type_of_coverage = 'Test'
-        self.coverage_url = 'cover/index.html'
-        self.coverage_file = os.path.join(
-            os.path.dirname(os.path.abspath(__file__)),
-            'metrics',
-            'coverage_high_water_mark'
-        )
-        self.coverage_source_file = "coverage.xml"
-
-
 class MypyCoverageRatchetCommand(CoverageRatchetCommand):
     def initialize_options(self) -> None:
         """Set default values for options."""
@@ -112,6 +99,7 @@ setup(
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
     ],
     description="Script which securely prompts for a password and outputs it to stdout",  # noqa: E501
     entry_points={
@@ -121,7 +109,6 @@ setup(
         ],
     },
     cmdclass={
-        'coverage_ratchet': TestCoverageRatchetCommand,
         'mypy_ratchet': MypyCoverageRatchetCommand,
     },
     install_requires=requirements,

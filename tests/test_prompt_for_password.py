@@ -9,6 +9,8 @@ import sys
 
 import pytest
 
+import prompt_for_password
+
 
 @pytest.fixture
 def response():
@@ -20,10 +22,10 @@ def response():
     # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
 
 
-def test_content(response):
-    """Sample pytest test function with the pytest fixture as an argument."""
-    # from bs4 import BeautifulSoup
-    # assert 'GitHub' in BeautifulSoup(response.content).title.string
+def test_dunders(response):
+    assert prompt_for_password.__author__ is not None
+    assert prompt_for_password.__email__ is not None
+    assert prompt_for_password.__version__ is not None
 
 
 def test_cli_no_command():
