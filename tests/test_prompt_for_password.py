@@ -9,6 +9,8 @@ import sys
 
 import pytest
 
+import prompt_for_password
+
 
 @pytest.fixture
 def response():
