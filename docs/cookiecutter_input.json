@@ -1,4 +1,5 @@
 {
+    "_output_dir": "/Users/broz/src/prompt-for-password/.git/cookiecutter",
     "_template": "https://github.com/apiology/cookiecutter-pypackage/",
     "command_line_interface": "Argparse",
     "create_author_file": "y",
